@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fromEventPattern } from 'rxjs';
-// import { Hero } from '../hero';
+import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
 
 @Component({
@@ -11,10 +11,12 @@ import { HEROES } from '../mock-heroes';
 export class HeroesComponent implements OnInit {
 
   heroes = HEROES;
-  // hero: Hero = {
-  //   id: 1,
-  //   name: 'Windstorm'
-  // }
+  selectedHero?: Hero;
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    
+  }
 
   constructor() { }
 
