@@ -15,5 +15,11 @@ export class HeroService {
     return heroes;
   }
 
+  getHero(id: Number): Observable<Hero> {
+    const hero = HEROES.find(h => h.id === id) as Hero;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero);
+  }
+
   constructor(private messageService: MessageService) { }
 }
